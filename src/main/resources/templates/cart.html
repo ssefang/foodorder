@@ -25,8 +25,8 @@
     <div>
         <a href="/userIndex">Order More</a>
     </div>
-<!--    result行不行？-->
-    <form th:action="@{/checkout}" th:object="${cartListForm}" method="get">
+
+    <form th:action="@{/checkout}" th:object="${cartListForm}" method="post">
 
         <table class="table table-primary table-responsive-md">
             <thead>
@@ -96,52 +96,17 @@
 
         </table>
 
-        <button type="submit" class="btn btn-info col-2">Go to checkout</button>
+<!--        <button type="submit" class="btn btn-info col-2">Go to checkout</button>-->
+
+        <button type="submit" class="btn btn-info col-2"  th:disabled ="${cartListForm.cartList.size() eq 0}">Go to checkout</button>
 
     </form>
 
 
 
+
 </div>
-
-
-<!--
-  place order button
-  onclick() ->
-
-  call OrderController.createOrder()
-  1, insert data into tbl_order          //orderService.createOrder()
-  2, insert data into tbl_order_detail   //orderService.createOrder()
-  3, remove data from cart               //cartService.removeCartItemsByUserId()
-  4, goto payment page                   //redirect to payment.html
--->
 <div th:replace="fragments/footer :: footer"/>
 </body>
 
-
-<script th:inline = "javascript"  type="text/javascript">
-    function addOrder() {
-        alert("11111111111111");
-        let paymentId = $("#cartId").text();
-        let orderTotalPrice = $("#orderTotalPrice").text();
-
-        $.ajax({
-            type:"POST",
-            url:"/checkout",
-            data:{
-                "paymentId":paymentId,
-                "orderTotalPrice":orderTotalPrice,
-            },
-            success:function (data){
-                alert("insert order table done");
-                console.log("ok");
-            },
-            error:function (){
-                alert("payment wrong");
-            }
-        })
-    }
-
-
-</script>
 </html>

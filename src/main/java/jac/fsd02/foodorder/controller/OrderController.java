@@ -7,8 +7,8 @@ import jac.fsd02.foodorder.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class OrderController {
@@ -16,10 +16,9 @@ public class OrderController {
     @Autowired
     OrderService orderService;
 
-    //add of
-    @GetMapping("/checkout")
+    @PostMapping("/checkout")
     public String createOrder(@ModelAttribute("cartListForm") CartListForm cartListForm, Model model){
-//        cartList = (ArrayList<Cart>)model.getAttribute("result");
+
         System.out.println(cartListForm.toString());
         Order order = orderService.createOrder(cartListForm);
 
@@ -30,7 +29,5 @@ public class OrderController {
         model.addAttribute("orderTotalPrice", cartListForm.getOrderTotalPrice());
         return "payment";
     }
-
-
 
 }

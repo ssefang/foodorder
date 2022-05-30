@@ -10,12 +10,9 @@ import java.util.Optional;
 @Repository
 public interface CartRepository extends JpaRepository<Cart,Long> {
 
-    //果在controller层点不出来的普通方法（findAll, findById..），可以在Repository自己定义，命名用find开始
     List<Cart> findCartsByUserId(Long userId);
 
     Optional<Cart> findByUserIdAndItemId(Long userId, Long itemId);
-
-//    void deleteByItemId(Long itemId);
 
     void deleteById(Long cartId);
 

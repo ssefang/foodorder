@@ -26,8 +26,9 @@ public class CartServiceImpl implements CartService {
         Optional<Cart> optCart = cartRepository.findByUserIdAndItemId(userId, itemId);
 
         if(optCart.isPresent()) {
-            Integer newQuantity = cart.getQuantity();
             Cart newCart = optCart.get();
+
+            Integer newQuantity = cart.getQuantity();
             newCart.setQuantity(newQuantity);
             return cartRepository.save(newCart);
         }else {
