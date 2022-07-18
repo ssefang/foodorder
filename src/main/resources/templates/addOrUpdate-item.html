@@ -10,23 +10,13 @@
     <link rel="stylesheet" th:href="@{/css/footer.css}" href="../../css/footer.css" /> <!--footer link for css-->
     <link rel="stylesheet" th:href="@{/css/header.css}" href="../../css/header.css" /> <!--header link for css-->
     <script src="https://kit.fontawesome.com/3f829efc5a.js" crossorigin="anonymous"></script> <!--icons in footer-->
-    <th:block th:replace="fragments/styles :: common"></th:block>
-    <th:block th:replace="fragments/styles :: datatable"></th:block>
 </head>
-
-<body class="nav-md">
-<div class="container body">
-    <div class="main_container">
-        <div th:replace="fragments/headeradmin :: headeradmin"/>
-        <th:block th:replace="fragments/sidemenu :: menu"></th:block>
-        <div class="right_col" role="main">
-            <div class="col-md-9 col-sm-12 col-xs-12">
-                <div class="x_panel">
-                    <div class="x_title">
-                        <h2>Add & Update Item</h2>
-                        <div class="clearfix"></div>
-                    </div>
-                    <div class="x_content">
+<body>
+<div th:replace="fragments/headeradmin :: headeradmin"/>
+<div class="container">
+    <h1>Item Management System</h1>
+    <hr>
+    <h2>Update Item</h2>
 
     <form action="#" th:action="@{/saveItem}" th:object="${item}" method="post">
 
@@ -69,19 +59,12 @@
             <li th:each="err :${#fields.errors()}" th:text="${err}" class="error"></li>
         </ul>
 
-        <button type="submit" class="btn btn-info col-2">add/update Item</button>
+        <button type="submit" class="btn btn-info col-2">update Item</button>
 
     </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 </div>
-<!--<div th:replace="fragments/footer :: footer"/>-->
-<th:block th:replace="fragments/scripts :: common"></th:block>
-<th:block th:replace="fragments/scripts :: datatable"></th:block>
-<script th:src="@{/js/category/form.js}"></script>
+<br><br>
+<div th:replace="fragments/footer :: footer"/>
 </body>
 <script type="text/javascript">
     $(function () {

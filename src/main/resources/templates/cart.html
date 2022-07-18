@@ -19,113 +19,149 @@
 
 </head>
 <body>
-
 <div th:replace="fragments/header :: header"/>
-
 <div class="container my-2">
-
+<!--    <h3>Cart List</h3>-->
+<!--    <div>-->
+<!--        <a href="/userIndex">Order More</a>-->
+<!--    </div>-->
+<!--    result行不行？-->
     <nav aria-label="breadcrumb">
-    <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="/">Home</a></li>
-        <li class="breadcrumb-item"><a href="/userIndex">Menu</a></li>
-        <li class="breadcrumb-item active" aria-current="page">My cart</li>
-    </ol>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/">Home</a></li>
+            <li class="breadcrumb-item"><a href="/userIndex">Menu</a></li>
+            <li class="breadcrumb-item active" aria-current="page">My cart</li>
+        </ol>
     </nav>
+    <br>
+    <br>
+    <form th:action="@{/checkout}" th:object="${cartListForm}" method="get">
 
-<br>
-<br>
+        <table class="table table-primary table-responsive-md">
+            <thead>
+            <tr>
+                <th >Cart Id</th>
+                <th>Item Id</th>
+                <th>Item Name</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Item Sub Total Price</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <tr th:each="cart, status:${cartListForm.cartList}">
 
-<form th:action="@{/checkout}" th:object="${cartListForm}" method="post">
+                <td>
+                    <input th:field="*{cartList[__${status.index}__].id}" th:value="${cart.id}" readonly="readonly">
+                </td>
+                <td>
+                    <input th:field="*{cartList[__${status.index}__].itemId}" th:value="${cart.itemId}" readonly="readonly">
+                </td>
+                <td>
+                    <input th:field="*{cartList[__${status.index}__].itemName}" th:value="${cart.itemName}" readonly="readonly">
+                </td>
 
-    <table class="table" >
-        <thead>
-        <tr>
-            <!--                <th>Cart Id</th>-->
-            <!--                <th>Item Id</th>-->
-            <th>Item Name</th>
-            <th>Price</th>
-            <th>Quantity</th>
-            <th>Item Sub Total Price</th>
-            <th>Action</th>
-        </tr>
-        </thead>
-        <tr th:each="cart, status:${cartListForm.cartList}"style="border-style:none">
+                <td>
+                    <input th:field="*{cartList[__${status.index}__].itemPrice}" th:value="${cart.itemPrice}" readonly="readonly">
+                </td>
+                <td>
+                    <input th:field="*{cartList[__${status.index}__].quantity}" th:value="${cart.quantity}" readonly="readonly">
+                </td>
+                <td>
+                    <input th:value ="${cart.quantity * cart.itemPrice}" readonly="readonly">
+                </td>
 
-            <!--                <td style="width:5px">-->
-            <input th:field="*{cartList[__${status.index}__].id}" th:value="${cart.id}" type="hidden">
+                <td>
+                    <a th:href="@{/deleteCart/{id}(id=${cart.id})}" class="btn btn-danger">Delete</a>
+                </td>
 
-            <!--                </td>-->
-            <!--                <td style="width:5px">-->
-            <input th:field="*{cartList[__${status.index}__].itemId}" th:value="${cart.itemId}" type="hidden">
+            </tr>
+            <tr>
+                <td>Item Total Price:</td>
+                <td>
+                    <input th:field="${cartListForm.itemTotalPrice}" th:value="${cartListForm.itemTotalPrice}" readonly="readonly">
+                </td>
+            </tr>
+            <tr>
+                <td>Shipping Fee:</td>
+                <td>
+                    <input th:field="${cartListForm.shippingFee}" th:value="${cartListForm.shippingFee}" readonly="readonly">
+                </td>
+            </tr>
+            <tr>
+                <td>Tax:</td>
+                <td>
+                    <input th:field="${cartListForm.tax}" th:value="${cartListForm.tax}" readonly="readonly">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Total Order
+                </td>
+                <td>
+                    <input id="orderTotalPrice" th:field="${cartListForm.orderTotalPrice}" th:value="${cartListForm.orderTotalPrice}" readonly="readonly">
+                </td>
+            </tr>
 
-            <!--                </td>-->
-            <td>
-                <input th:field="*{cartList[__${status.index}__].itemName}" th:value="${cart.itemName}" readonly="readonly" style="border-style:none">
-            </td>
+        </table>
 
-            <td>
-                <input th:field="*{cartList[__${status.index}__].itemPrice}" th:value="${cart.itemPrice}" readonly="readonly" style="border-style:none">
-            </td>
-            <td>
-                <input th:field="*{cartList[__${status.index}__].quantity}" th:value="${cart.quantity}" readonly="readonly" style="border-style:none">
-            </td>
-            <td>
-                <input th:value ="${#numbers.formatDecimal(cart.quantity * cart.itemPrice, 0, 'COMMA', 2, 'POINT')}" readonly="readonly" style="border-style:none">
+        <button type="submit" class="btn btn-info col-2"  >Go to checkout</button>
 
-                <!--                    <input th:value ="${cart.quantity * cart.itemPrice}" readonly="readonly" style="border-style:none">-->
-            </td>
+    </form>
 
-            <td>
-                <a th:href="@{/deleteCart/{id}(id=${cart.id})}" class="btn btn-danger">Delete</a>
-            </td>
 
-        </tr>
-        <tr class="table-info">
-            <td>Item Total Price:</td>
-            <td>
-                <input th:field="${cartListForm.itemTotalPrice}" th:value="${cartListForm.itemTotalPrice}" readonly="readonly" style="border-style:none">
-            </td>
-        </tr>
-        <tr class="table-info">
-            <td>Shipping Fee:</td>
-            <td>
-                <input th:field="${cartListForm.shippingFee}" th:value="${cartListForm.shippingFee}" readonly="readonly" style="border-style:none">
-            </td>
-        </tr >
-        <tr class="table-info">
-            <td>Tax:</td>
-            <td>
-                <input th:field="${cartListForm.tax}" th:value="${cartListForm.tax}" readonly="readonly" style="border-style:none">
-            </td>
-        </tr>
-        <tr  class="table-primary">
-            <td>
-                Total Order
-            </td>
-            <td>
-                <input id="orderTotalPrice" th:field="${cartListForm.orderTotalPrice}" th:value="${cartListForm.orderTotalPrice}" readonly="readonly" style="border-style:none">
-            </td>
-        </tr>
 
-    </table>
-
-    <!--        <button type="submit" class="btn btn-info col-2">Go to checkout</button>-->
-
-    <button type="submit" class="btn btn-info col-2"  th:disabled ="${cartListForm.cartList.size() eq 0}">Go to checkout</button>
-</form>
-
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
 </div>
 
-<div th:replace="fragments/footer :: footer"/>
 
+<!--
+  place order button
+  onclick() ->
+
+  call OrderController.createOrder()
+  1, insert data into tbl_order          //orderService.createOrder()
+  2, insert data into tbl_order_detail   //orderService.createOrder()
+  3, remove data from cart               //cartService.removeCartItemsByUserId()
+  4, goto payment page                   //redirect to payment.html
+-->
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div th:replace="fragments/footer :: footer"/>
 </body>
 
 
+<script th:inline = "javascript"  type="text/javascript">
+    function addOrder() {
+        alert("11111111111111");
+        let paymentId = $("#cartId").text();
+        let orderTotalPrice = $("#orderTotalPrice").text();
 
+        $.ajax({
+            type:"POST",
+            url:"/checkout",
+            data:{
+                "paymentId":paymentId,
+                "orderTotalPrice":orderTotalPrice,
+            },
+            success:function (data){
+                alert("insert order table done");
+                console.log("ok");
+            },
+            error:function (){
+                alert("payment wrong");
+            }
+        })
+    }
+
+
+</script>
 </html>

@@ -11,6 +11,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 import javax.sql.DataSource;
 @Configuration
@@ -47,15 +48,16 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
                 .antMatchers("/index", "/register", "/css/**", "/js/**", "/webjars/**", "/images/**", "/img/**", "/process_register", "/register_success").permitAll()
-                .antMatchers("/admin", "/itemList", "/city", "/save", "/showFormForUpdate/**", "/addNew", "/delete", "/toPhoto/upload","/users","orders").hasAuthority("ADMIN")
-                .antMatchers("/userIndex","/addCart","/cart").hasAuthority("USER")
+                .antMatchers("/catogoryList", "/itemList", "/city", "/save", "/showFormForUpdate/**", "/addNew", "/delete", "/toPhoto/upload","/users","orders").hasAuthority("ADMIN")
+                .antMatchers("/userIndex","/addCart","/cart","/savePayment").hasAuthority("USER")
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
                 .defaultSuccessUrl("/qufen")
                 .permitAll()
                 .and()
-                .logout().logoutSuccessUrl("/").permitAll()
+                .logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+                .logoutSuccessUrl("/").permitAll()
                 .and()
                 .exceptionHandling().accessDeniedPage("/403")
                 .and()

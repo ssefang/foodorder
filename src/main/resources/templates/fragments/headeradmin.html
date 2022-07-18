@@ -19,25 +19,20 @@
             <img class="logo" src="../../images/logoSm.png" alt="logo">
             <nav>
                 <ul class="nav_links">
-                    <li><a th:href="@{/}">Home</a></li>
-<!--                    <li><a th:href="@{/catogoryList}">Category</a></li>-->
-<!--                    <li><a th:href="@{/itemList}">Item</a></li>-->
-<!--                    <li><a th:href="@{/city}">City</a></li>-->
-<!--                    <li><a th:href="@{/user}">User</a></li>-->
-<!--                    <li><a href="#">Order</a></li>-->
-                    <div th:if="${#authorization.expression('!isAuthenticated()')}" class="nav navbar-nav navbar-right">
-                        <a href="/login" th:href="@{/login}">
-                            <button class="glyphicon glyphicon-log-in" aria-hidden="true" >Log in</button>&nbsp;
-                        </a>
-                    </div>
-                    <div th:if="${#authorization.expression('isAuthenticated()')}" class="nav navbar-nav navbar-right">
-                        <a href="/logout" th:href="@{#}" onclick="$('#form').submit();">
-                            <button class="glyphicon glyphicon-log-out" aria-hidden="true" >Logout</button>&nbsp;<b>[[${#request.userPrincipal.principal.fullName}]]</b>
-                        </a>
-                        <form style="visibility: hidden" id="form" method="post" action="#" th:action="@{/logout}"></form>
-                    </div>
+                    <li><a th:href="@{/index}"><h3>Home</h3></a></li>
                 </ul>
             </nav>
+            <div th:if="${#authorization.expression('!isAuthenticated()')}">
+                <a href="/login" th:href="@{/login}">
+                    <button class="glyphicon glyphicon-log-in" aria-hidden="true" >Log in</button>&nbsp;
+                </a>
+            </div>
+            <div th:if="${#authorization.expression('isAuthenticated()')}">
+                <a href="/logout" th:href="@{#}" onclick="$('#form').submit();">
+                    <button class="glyphicon glyphicon-log-out" aria-hidden="true" >Logout</button>&nbsp;<b>[[${#request.userPrincipal.principal.fullName}]]</b>
+                </a>
+                <form style="visibility: hidden" id="form" method="post"  th:action="@{/logout}"></form>
+            </div>
 
         </header>
 

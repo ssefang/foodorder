@@ -24,26 +24,7 @@ public class PaymentController {
         this.paymentService = paymentService;
     }
 
-//    @GetMapping("/addPayment")
-//    public String paymentPage(Model model) {
-//        //it will call the db/service and fetches the data
-////        List<Payment> paymentList = paymentService.getPaymentList();
-////        model.addAttribute("allPayments", paymentList);
-//
-//        Payment payment = new Payment();
-//        model.addAttribute("payment", payment);
-//
-//        double cartTotal = cartService.getTotal();
-//        model.addAttribute("cartTotal", cartTotal);
-//
-////        cartService.getUserId();
-////        Cart cart = cartService.getuser;
-////        model.addAttribute("userId", cart.userId);
-//
-////        double avg = paymentService.getAvg();
-////        model.addAttribute("avggrade", avg);
-//        return "payment";
-//    }
+
 
     @PostMapping("/savePayment")
     public String savePayment

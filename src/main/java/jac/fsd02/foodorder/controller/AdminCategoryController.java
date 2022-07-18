@@ -27,7 +27,6 @@ public class AdminCategoryController {
         List<Category> categoryList = adminCategoryService.getCategoryList();
         model.addAttribute("allCategory",categoryList);
         return "catogoryList";
-//        return "homeadmin";
     }
 
     @GetMapping("/addNew")
@@ -49,12 +48,12 @@ public class AdminCategoryController {
         return "redirect:/catogoryList";
     }
 
-//    public String saveCategory( @ModelAttribute("category") Category addCategory){
-//
-//        adminCategoryService.saveOrUpdateCategory(addCategory);
-//
-//        return "redirect:/catogoryList";
-//    }
+    public String saveCategory( @ModelAttribute("category") Category addCategory){
+
+        adminCategoryService.saveOrUpdateCategory(addCategory);
+
+        return "redirect:/catogoryList";
+    }
 
     @GetMapping("/showFormForUpdate/{id}")
     public String updateForm(@PathVariable(value = "id") long id, Model model)throws RecordNotFoundException {

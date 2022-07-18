@@ -39,11 +39,6 @@ public class AppController {
             return "redirect:/catogoryList";//如果是后台管理人员登录
     }
 
-//    @GetMapping("/admin")
-//    public String viewAdminHomePage() {
-//        return "homeadmin";
-//    }
-
     @GetMapping("/register")
     public String showRegistrationForm(Model model) {
         model.addAttribute("user", new User());

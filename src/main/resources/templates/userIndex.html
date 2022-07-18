@@ -13,7 +13,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
             crossorigin="anonymous"></script>
 
-    <link rel="stylesheet" th:href="@{/css/footer.css}" href="../../css/footer.css" /> <!--footer link for css-->
+    <link rel="stylesheet" th:href="@{/css/footer.css}" href="../../css/project.css" /> <!--footer link for css-->
     <link rel="stylesheet" th:href="@{/css/header.css}" href="../../css/header.css" /> <!--header link for css-->
     <script src="https://kit.fontawesome.com/3f829efc5a.js" crossorigin="anonymous"></script> <!--icons in footer-->
 
@@ -21,21 +21,14 @@
 <body>
 <div th:replace="fragments/header :: header"/>
 <div class="container" my-2>
-<!--    <h3 ><a th:href="@{/}" class="btn btn-primary">Home</a></h3>-->
-<!--    <div>-->
-<!--        <form th:action="@{/logout}" method="post">-->
-<!--            <p>-->
-<!--                Welcome <b>[[${#request.userPrincipal.principal.fullName}]]</b>-->
-<!--            </p>-->
-<!--            <input type="submit" value="Sign Out" />-->
-<!--        </form>-->
-<!--    </div>-->
+
+
     <table style="..." class="table table-striped table-responsive-md"  >
         <thead>
-<!--        <tr>-->
-<!--            <th>Category</th>-->
-<!--            <th><a href="/cart">View Cart</a></th>-->
-<!--        </tr>-->
+        <tr>
+            <th>Category</th>
+            <th><a href="/cart">View Cart</a></th>
+        </tr>
         </thead>
     </table>
 
@@ -83,6 +76,7 @@
 <br>
 <br>
 <br>
+
 <div>
     <div th:replace="fragments/footer :: footer"/>
 </div>

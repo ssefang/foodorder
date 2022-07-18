@@ -81,25 +81,4 @@ public class OrderService {
         throw new RecordNotFoundException("Order info not found");
     }
 
-    public List<Order> getOrderList() {
-        return (List<Order>) orderRespository.findAll();
-    }
-
-    public Order getOrderById(long id) throws RecordNotFoundException {
-        Optional<Order> orderInDb =  orderRespository.findById(id);
-        if(orderInDb.isPresent()){
-            return orderInDb.get();
-        }
-        else{
-            throw new RecordNotFoundException("There is no Order");
-        }
-    }
-
-    public Order saveOrUpdateOrder(Order order) {
-        return orderRespository.save(order);
-    }
-
-    public void deleteOrder(long id) {
-        orderRespository.deleteById(id);
-    }
 }

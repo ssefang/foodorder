@@ -43,7 +43,7 @@ public class CartControllerImpl implements CartController{
         ArrayList<Cart> cartList = (ArrayList<Cart>) cartService.getCartListByUserId(userId);
         Double itemTotalPrice = cartService.getTotalOrderPrice(userId);
 
-        Double shippingFee = 10.00;//todo: query shipping fee
+        Double shippingFee = 5.55;//todo: query shipping fee
         Double amountBeforeTax = itemTotalPrice + shippingFee;
         Double taxAmount = BigDecimal.valueOf(amountBeforeTax)
                 .multiply(BigDecimal.valueOf(Constants.TAX_RATE))

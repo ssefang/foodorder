@@ -17,8 +17,9 @@
 </head>
 
 <body>
+<div th:replace="fragments/header :: header"/>
 <main class="container">
-    <div th:replace="fragments/header :: header"/>
+
 
 <!--<div class="container text-center">-->
 <!--    <h3><a th:href="@{/userIndex}">userIndex</a></h3>-->
@@ -121,7 +122,7 @@
                     <div class="col-lg-6 menu-item filter-starters">
                         <img src="images/pisa1.jpeg" class="menu-img" alt="">
                         <div class="menu-content">
-                            <a href="#">Pizza</a><span>$ 18</span>
+                            <a href="#">Pizza</a><span>GHC 5.95</span>
                         </div>
                         <div class="menu-ingredients">
                             Lorem, deren, trataro, filede, nerada
@@ -131,7 +132,7 @@
                     <div class="col-lg-6 menu-item filter-specialty">
                         <img src="images/pisa2.jpeg" class="menu-img" alt="">
                         <div class="menu-content">
-                            <a href="#">Pizza</a><span>$ 18</span>
+                            <a href="#">Pizza</a><span>GHC 20</span>
                         </div>
                         <div class="menu-ingredients">
                             Lorem, deren, trataro, filede, nerada
@@ -141,7 +142,7 @@
                     <div class="col-lg-6 menu-item filter-starters">
                         <img src="images/yidalimian1.png" class="menu-img" alt="">
                         <div class="menu-content">
-                            <a href="#">Spaghetti</a><span>$ 25</span>
+                            <a href="#">Spaghetti</a><span>GHC 19</span>
                         </div>
                         <div class="menu-ingredients">
                             Lorem, deren, trataro, filede, nerada
@@ -151,7 +152,7 @@
                     <div class="col-lg-6 menu-item filter-salads">
                         <img src="images/yidalimian2.jpeg" class="menu-img" alt="">
                         <div class="menu-content">
-                            <a href="#">Spaghetti</a><span>$ 25</span>
+                            <a href="#">Spaghetti</a><span>GHC 18</span>
                         </div>
                         <div class="menu-ingredients">
                             Lorem, deren, trataro, filede, nerada
@@ -161,7 +162,7 @@
                     <div class="col-lg-6 menu-item filter-specialty">
                         <img src="images/hanbaobao1.jpeg" class="menu-img" alt="">
                         <div class="menu-content">
-                            <a href="#">Hamburger</a><span>$ 19</span>
+                            <a href="#">Hamburger</a><span>GHC 16</span>
                         </div>
                         <div class="menu-ingredients">
                             Grilled chicken with provolone, artichoke hearts, and roasted red pesto
@@ -171,7 +172,7 @@
                     <div class="col-lg-6 menu-item filter-starters">
                         <img src="images/hanbaobao2.jpeg" class="menu-img" alt="">
                         <div class="menu-content">
-                            <a href="#">Hamburger</a><span>$ 19</span>
+                            <a href="#">Hamburger</a><span>GHC 20</span>
                         </div>
                         <div class="menu-ingredients">
                             Lorem, deren, trataro, filede, nerada
@@ -181,7 +182,7 @@
                     <div class="col-lg-6 menu-item filter-salads">
                         <img src="images/lamian1.jpeg" class="menu-img" alt="">
                         <div class="menu-content">
-                            <a href="#">Ramen</a><span>$ 20</span>
+                            <a href="#">Ramen</a><span>GHC 22</span>
                         </div>
                         <div class="menu-ingredients">
                             Fresh spinach, crisp romaine, tomatoes, and Greek olives
@@ -191,7 +192,7 @@
                     <div class="col-lg-6 menu-item filter-salads">
                         <img src="images/lamian2.jpeg" class="menu-img" alt="">
                         <div class="menu-content">
-                            <a href="#">Ramen</a><span>$ 20</span>
+                            <a href="#">Ramen</a><span>GHC 21</span>
                         </div>
                         <div class="menu-ingredients">
                             Fresh spinach with mushrooms, hard boiled egg, and warm bacon vinaigrette
@@ -246,85 +247,85 @@
 <!--        <footer class="row">-->
 <!--            <div class="col-12 text-center">copyright &copy; EAT NOW</div>-->
 <!--        </footer>-->
-        <footer>
-            <div class="container wrap">
-                <div class="row">
-                    <div class="column">
-                        <div class="footer-widget about-widget">
-                            <h2 class="widget-title">About</h2>
-                            <p>Eat now order system</p>
-                            <div class="cards">
-                                <i class="fa-brands fa-cc-mastercard"></i>
-                                <i class="fa-brands fa-cc-paypal"></i>
-                                <!--                            <i class="fa-brands fa-cc-amex"></i>-->
-                                <i class="fa-brands fa-cc-visa"></i>
-                                <i class="fa-brands fa-cc-discover"></i>
-                            </div>
-                            <p><span> <i class="fa-solid fa-lock"></i></span> Secure online payment</p>
-                        </div>
-                    </div>
 
-                    <div class="column">
-                        <div class="footer-widget categories-widget">
-                            <h2 class="widget-title">Categories</h2>
-                            <ul>
-                                <li><a href="#">Category1</a></li>
-                                <li><a href="#">Category2</a></li>
-                                <li><a href="#">Category3</a></li>
-                                <li><a href="#">Category4</a></li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="column">
-                        <div class="footer-widget information-widget">
-                            <h2 class="widget-title">Information</h2>
-                            <ul>
-                                <li><a href="#">About Us</a></li>
-                                <li><a href="#">Contact Us</a></li>
-                                <li><a href="#">Shipping&Delivery</a></li>
-                                <li><a href="#">Private Policy</a></li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="column">
-                        <div class="footer-widget contact-widget">
-                            <h2 class="widget-title">Contact</h2>
-
-                            <div class="contact-address">
-                                <i class="fa-solid fa-location-dot"></i> Address: John Abbott, Montreal, Canada.
-                            </div>
-
-                            <div class="contact-number">
-                                <i class="fa-solid fa-square-phone"></i> Phone: +1 123456789
-                            </div>
-
-                            <div class="contact-email">
-                                <i class="fa-solid fa-envelope"></i> Email: eatnow@gmail.com
-                            </div>
-
-                            <div class="social-widget">
-                                <a href="#"><i class="fa-brands fa-facebook"></i></a>
-                                <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                                <a href="#"><i class="fa-brands fa-twitter"></i></a>
-                                <a href="#"><i class="fa-brands fa-youtube"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="copyright">
-                <div class="container">
-                    <p>Copyright @ 2022 All rights reserved | Design made with <i class="fa-solid fa-heart"></i> by WuzheQin zhaolongWang ZhenFang NanZhang TingtingXu</p>
-                </div>
-            </div>
-
-        </footer>
     </main>
 
 </main>
+<footer>
+    <div class="container wrap">
+        <div class="row">
+            <div class="column">
+                <div class="footer-widget about-widget">
+                    <h2 class="widget-title">About</h2>
+                    <p>Eat now order system</p>
+                    <div class="cards">
+                        <i class="fa-brands fa-cc-mastercard"></i>
+                        <i class="fa-brands fa-cc-paypal"></i>
+                        <!--                            <i class="fa-brands fa-cc-amex"></i>-->
+                        <i class="fa-brands fa-cc-visa"></i>
+                        <i class="fa-brands fa-cc-discover"></i>
+                    </div>
+                    <p><span> <i class="fa-solid fa-lock"></i></span> Secure online payment</p>
+                </div>
+            </div>
 
+            <div class="column">
+                <div class="footer-widget categories-widget">
+                    <h2 class="widget-title">Categories</h2>
+                    <ul>
+                        <li><a href="#">Category1</a></li>
+                        <li><a href="#">Category2</a></li>
+                        <li><a href="#">Category3</a></li>
+                        <li><a href="#">Category4</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="column">
+                <div class="footer-widget information-widget">
+                    <h2 class="widget-title">Information</h2>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Shipping&Delivery</a></li>
+                        <li><a href="#">Private Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="column">
+                <div class="footer-widget contact-widget">
+                    <h2 class="widget-title">Contact</h2>
+
+                    <div class="contact-address">
+                        <i class="fa-solid fa-location-dot"></i> Address: John Abbott, Montreal, Canada.
+                    </div>
+
+                    <div class="contact-number">
+                        <i class="fa-solid fa-square-phone"></i> Phone: +1 123456789
+                    </div>
+
+                    <div class="contact-email">
+                        <i class="fa-solid fa-envelope"></i> Email: eatnow@gmail.com
+                    </div>
+
+                    <div class="social-widget">
+                        <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="copyright">
+        <div class="container">
+            <p>Copyright @ 2022 All rights reserved | Design made with <i class="fa-solid fa-heart"></i> by WuzheQin zhaolongWang ZhenFang NanZhang TingtingXu</p>
+        </div>
+    </div>
+
+</footer>
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
